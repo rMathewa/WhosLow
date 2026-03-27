@@ -20,4 +20,5 @@ You can find natively compiled `.jar` builds in the Releases tab targeting:
 - **1.21 through 1.21.4 (Cross-Version Range)**
 
 ---
+credits and much love to GrandpaTim, the initial idea was his.
 // #made by mathew love u all <3
