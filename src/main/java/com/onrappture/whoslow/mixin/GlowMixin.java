@@ -30,8 +30,6 @@ public class GlowMixin {
                 }
 
                 cir.setReturnValue(true);
-            } else if (localPlayer == targetPlayer) {
-                 cir.setReturnValue(true);
             }
         }
     }
@@ -58,8 +56,6 @@ public class GlowMixin {
                 } else {
                     cir.setReturnValue(GlowConfig.get().getHigherHealthColor());
                 }
-            } else if (localPlayer == player) {
-                cir.setReturnValue(GlowConfig.get().getHigherHealthColor());
             }
         }
     }
