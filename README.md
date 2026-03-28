@@ -16,8 +16,7 @@ Designed specifically to tackle the messy logic of instant-respawn PvP modes (li
 
 ## Supported Versions
 You can find natively compiled `.jar` builds in the Releases tab targeting:
-- **1.21.11** 
-- **1.21 through 1.21.4 (Cross-Version Range)**
+- **1.21 through 1.21.11 (Cross-Version Range)**
 
 ---
 credits and much love to GrandpaTim, the initial idea was his.
