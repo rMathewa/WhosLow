@@ -21,7 +21,6 @@ public class GlowConfig {
     private int higherHealthColor = 0x55FF55;
     private int lowerHealthColor = 0xFF5555;
     private int equalHealthColor = 0xFFFF55;
-    private boolean lineOfSightOnly = true;
 
     public static GlowConfig get() {
         return instance;
@@ -76,13 +75,6 @@ public class GlowConfig {
         this.equalHealthColor = color;
     }
 
-    public boolean isLineOfSightOnly() {
-        return lineOfSightOnly;
-    }
-
-    public void setLineOfSightOnly(boolean lineOfSightOnly) {
-        this.lineOfSightOnly = lineOfSightOnly;
-    }
 }
 
 // #made by mathew love u all <3
