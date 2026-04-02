@@ -17,6 +17,10 @@ public class GlowMixin {
         if (GlowConfig.get().isEnabled() && (Object) this instanceof Player targetPlayer) {
             Player localPlayer = Minecraft.getInstance().player;
             if (localPlayer != null && targetPlayer != localPlayer) {
+                if (!localPlayer.hasLineOfSight(targetPlayer)) {
+                    return;
+                }
+                
                 if (!targetPlayer.isAlive() || targetPlayer.getHealth() <= 0.0f || targetPlayer.isRemoved()) {
                     com.onrappture.whoslow.GlowState.ATTACKED_PLAYERS.remove(targetPlayer.getUUID());
                 } else if (targetPlayer.getHealth() >= targetPlayer.getMaxHealth()) {
@@ -26,9 +30,6 @@ public class GlowMixin {
                     }
                 }
                 if (!com.onrappture.whoslow.GlowState.ATTACKED_PLAYERS.containsKey(targetPlayer.getUUID())) {
-                    return;
-                }
-                if (GlowConfig.get().isLineOfSightOnly() && !localPlayer.hasLineOfSight(targetPlayer)) {
                     return;
                 }
 
@@ -42,6 +43,10 @@ public class GlowMixin {
         if (GlowConfig.get().isEnabled() && (Object) this instanceof Player player) {
             Player localPlayer = Minecraft.getInstance().player;
             if (localPlayer != null && player != localPlayer) {
+                if (!localPlayer.hasLineOfSight(player)) {
+                    return;
+                }
+                
                 if (!player.isAlive() || player.getHealth() <= 0.0f || player.isRemoved()) {
                     com.onrappture.whoslow.GlowState.ATTACKED_PLAYERS.remove(player.getUUID());
                 } else if (player.getHealth() >= player.getMaxHealth()) {
@@ -50,8 +55,8 @@ public class GlowMixin {
                         com.onrappture.whoslow.GlowState.ATTACKED_PLAYERS.remove(player.getUUID());
                     }
                 }
-                if (!com.onrappture.whoslow.GlowState.ATTACKED_PLAYERS.containsKey(player.getUUID())) return;
-                if (GlowConfig.get().isLineOfSightOnly() && !localPlayer.hasLineOfSight(player)) return;
+                if (!com.onrappture.whoslow.GlowState.ATTACKED_PLAYERS.containsKey(player.getUUID()))
+                    return;
 
                 if (player.getHealth() < localPlayer.getHealth()) {
                     cir.setReturnValue(GlowConfig.get().getLowerHealthColor());
